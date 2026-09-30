@@ -1,0 +1,25 @@
+# ===== Gradle / 构建产物 =====
+.gradle/
+build/
+app/build/
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# ===== Android Studio / IntelliJ =====
+.idea/
+*.iml
+captures/
+.cxx/
+
+# ===== 本地配置 (机器特定, 含 SDK 路径) =====
+local.properties
+
+# ===== 日志 =====
+*.log
+
+# ===== 操作系统 =====
+.DS_Store
+Thumbs.db
+desktop.ini

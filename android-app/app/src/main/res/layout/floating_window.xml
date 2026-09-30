@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/floating_bg"
+    android:padding="6dp">
+
+    <!-- 标题栏: 按住可拖动整个悬浮窗 -->
+    <LinearLayout
+        android:id="@+id/title_bar"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="数独辅助"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_collapse"
+            android:layout_width="40dp"
+            android:layout_height="32dp"
+            android:text="—"
+            android:textSize="12sp"
+            android:padding="0dp" />
+    </LinearLayout>
+
+    <!-- 面板主体: 可折叠 -->
+    <LinearLayout
+        android:id="@+id/panel_body"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_calibrate"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="校准"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_calibrate_pad"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="数盘"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_scan"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="识别"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_auto_fill"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="一键填充"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_exit"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="退出"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- 单项辅助技巧: 双击裸单候选 / 隐式唯一(行·列·宫) / 显性数对数组剔除 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_naked_fill"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="双击单候选"
+                android:textSize="11sp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp" />
+
+            <Button
+                android:id="@+id/btn_hidden_fill"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="隐式唯一"
+                android:textSize="11sp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp" />
+
+            <Button
+                android:id="@+id/btn_subset_elim"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="数对剔除"
+                android:textSize="11sp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp" />
+        </LinearLayout>
+
+        <!-- 提示: 不执行点击, 只分析下一步该怎么走并输出解题思路 -->
+        <Button
+            android:id="@+id/btn_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="提示 (下一步)"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/status_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#88FF88"
+            android:textSize="11sp"
+            android:paddingTop="4dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_copy_log"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="复制日志"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_share_log"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="分享日志文件"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_delete_log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="删除日志"
+            android:textSize="12sp" />
+
+        <ScrollView
+            android:id="@+id/log_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            android:paddingTop="4dp">
+
+            <TextView
+                android:id="@+id/log_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:fontFamily="monospace" />
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>
